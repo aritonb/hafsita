@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Hafssita 💙</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="stars"></div>
+<div id="flash"></div>
+
+<!-- Lightbox -->
+<div class="lbx" id="lbx">
+  <button class="lbx-close" onclick="closeLbx()">✕</button>
+  <img class="lbx-media" id="lbx-img" src="" alt="" style="display:none">
+  <video class="lbx-media" id="lbx-vid" controls style="display:none"></video>
+  <div class="lbx-cap" id="lbx-cap"></div>
+</div>
+
+<!-- S1: Heart Sync -->
+<div class="sec on" id="s1">
+  <div class="tw" id="tw">Establishing connection...</div>
+  <div class="hwrap" id="hwrap">
+    <svg class="ring-svg" width="190" height="190" viewBox="0 0 190 190">
+      <circle class="ring-bg" cx="95" cy="95" r="85" stroke-width="4" fill="none"/>
+      <circle class="ring-fill" id="rf" cx="95" cy="95" r="85" stroke-width="4" fill="none" stroke-linecap="round"/>
+    </svg>
+    <div class="hicon" id="hi">
+      <svg width="74" height="74" viewBox="0 0 32 32">
+        <path d="M16 28.5L14.1 26.7C7.15 20.4 2.5 16.2 2.5 11C2.5 6.6 5.9 3.2 10.3 3.2C12.75 3.2 15.1 4.35 16.65 6.15C18.2 4.35 20.55 3.2 23 3.2C27.4 3.2 30.8 6.6 30.8 11C30.8 16.2 26.15 20.4 19.2 26.7L17.3 28.5H16Z"/>
+      </svg>
+    </div>
+  </div>
+  <div class="hint">Hold to sync</div>
+</div>
+
+<!-- S2: Map -->
+<div class="sec" id="s2">
+  <div class="map-outer">
+    <svg class="map-svg" viewBox="0 0 600 270">
+      <path d="M55,75 Q110,48 178,65 Q240,82 258,110 Q274,138 252,168 Q230,198 188,203 Q146,208 105,190 Q64,172 50,142 Q36,112 55,75Z" fill="rgba(255,255,255,0.025)" stroke="rgba(59,130,246,0.13)" stroke-width="0.5"/>
+      <path d="M258,58 Q325,34 400,52 Q462,68 490,100 Q518,132 507,168 Q496,203 455,208 Q393,218 337,194 Q281,170 260,136 Q243,103 258,58Z" fill="rgba(255,255,255,0.025)" stroke="rgba(59,130,246,0.13)" stroke-width="0.5"/>
+      <path d="M190,158 Q212,150 228,162 Q244,174 238,190 Q232,206 213,210 Q194,214 184,202 Q174,190 178,176 Q182,162 190,158Z" fill="rgba(255,255,255,0.03)" stroke="rgba(59,130,246,0.13)" stroke-width="0.5"/>
+      <!-- Arc 1: Sivas to Casablanca -->
+      <path id="arc1" d="M428,120 Q335,210 210,188" fill="none" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="280" stroke-dashoffset="280" stroke-linecap="round"/>
+      <!-- Arc 2: Casablanca to Tübingen -->
+      <path id="arc2" d="M210,188 Q255,105 288,112" fill="none" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" stroke-dasharray="210" stroke-dashoffset="210" stroke-linecap="round"/>
+      <!-- Heart midpoint arc1 ~at Q midpoint -->
+      <g id="heart1" opacity="0" transform="translate(319,168)">
+        <path d="M0 4.5L-0.8 3.7C-3.3 1.4 -5.2 -0.2 -5.2 -2.2C-5.2 -3.9 -3.8 -5.2 -2.1 -5.2C-1.1 -5.2 -0.2 -4.7 0.4 -4C1 -4.7 1.9 -5.2 3 -5.2C4.7 -5.2 6.1 -3.9 6.1 -2.2C6.1 -0.2 4.2 1.4 1.6 3.7L0.8 4.5Z" fill="#3b82f6"/>
+      </g>
+      <!-- Heart midpoint arc2 ~halfway -->
+      <g id="heart2" opacity="0" transform="translate(249,107)">
+        <path d="M0 4.5L-0.8 3.7C-3.3 1.4 -5.2 -0.2 -5.2 -2.2C-5.2 -3.9 -3.8 -5.2 -2.1 -5.2C-1.1 -5.2 -0.2 -4.7 0.4 -4C1 -4.7 1.9 -5.2 3 -5.2C4.7 -5.2 6.1 -3.9 6.1 -2.2C6.1 -0.2 4.2 1.4 1.6 3.7L0.8 4.5Z" fill="rgba(255,255,255,0.8)"/>
+      </g>
+      <!-- Sivas dot + label -->
+      <circle cx="428" cy="120" r="5" fill="#3b82f6"/>
+      <circle cx="428" cy="120" r="11" fill="none" stroke="#3b82f6" stroke-width="0.5" opacity="0.4"/>
+      <text x="428" y="140" text-anchor="middle" font-family="DM Mono,monospace" font-size="10" fill="#3b82f6" letter-spacing="1">Sivas</text>
+      <text x="428" y="152" text-anchor="middle" font-family="DM Mono,monospace" font-size="8" fill="rgba(255,255,255,0.45)" letter-spacing="0.5">24.10.2025</text>
+      <!-- Casablanca dot + label -->
+      <circle id="cdot" cx="210" cy="188" r="5" fill="#3b82f6" opacity="0"/>
+      <circle id="cdot2" cx="210" cy="188" r="11" fill="none" stroke="#3b82f6" stroke-width="0.5" opacity="0"/>
+      <text id="clabel1" x="210" y="206" text-anchor="middle" font-family="DM Mono,monospace" font-size="10" fill="#3b82f6" letter-spacing="1" opacity="0">Casablanca</text>
+      <!-- Tübingen dot + label -->
+      <circle cx="288" cy="112" r="5" fill="white"/>
+      <circle cx="288" cy="112" r="11" fill="none" stroke="white" stroke-width="0.5" opacity="0.4"/>
+      <text x="288" y="96" text-anchor="middle" font-family="DM Mono,monospace" font-size="10" fill="white" letter-spacing="1">Tübingen</text>
+      <text x="288" y="86" text-anchor="middle" font-family="DM Mono,monospace" font-size="8" fill="rgba(255,255,255,0.55)" letter-spacing="0.5">09.04.2026</text>
+    </svg>
+  </div>
+
+  <div class="distline" id="distline"></div>
+  <button class="nav" id="btn2" style="opacity:0;pointer-events:none">Next chapter →</button>
+</div>
+
+<!-- S3: Media -->
+<div class="sec" id="s3">
+  <div class="sec-label">Moments you shared with me</div>
+  <div class="mgrid" id="mgrid">
+    <div style="display:flex;flex-direction:column;align-items:center">
+      <div class="mcard" onclick="openImg('IMG1','💙🤍')" data-type="img">
+        <img src="media/img1.jpg" alt="With family">
+        <div class="hover-over">Open</div>
+      </div>
+      <div class="mcaption">With your little ones 🤍</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center">
+      <div class="mcard" onclick="openImg('IMG2','💙🤍')" data-type="img">
+        <img src="media/img2.jpg" alt="Casablanca">
+        <div class="hover-over">Open</div>
+      </div>
+      <div class="mcaption">You and Yourself ✨</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center">
+      <div class="mcard" onclick="openImg('IMG3','💙🤍')" data-type="img">
+        <img src="media/img3.jpg" alt="Selfie">
+        <div class="hover-over">Open</div>
+      </div>
+      <div class="mcaption">That smile, always 🌙</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center">
+      <div class="mcard" onclick="openVid('media/vid1.mp4','💙🤍')" data-type="vid">
+        <video src="media/vid1.mp4" muted preload="metadata" style="pointer-events:none"></video>
+        <div class="vid-badge"><svg viewBox="0 0 10 10"><path d="M2 1.5L8.5 5L2 8.5V1.5Z"/></svg></div>
+        <div class="hover-over">Play</div>
+      </div>
+      <div class="mcaption">A video I kept 💙</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center">
+      <div class="mcard" onclick="openVid('media/vid2.mp4','💙🤍')" data-type="vid">
+        <video src="media/vid2.mp4" muted preload="metadata" style="pointer-events:none"></video>
+        <div class="vid-badge"><svg viewBox="0 0 10 10"><path d="M2 1.5L8.5 5L2 8.5V1.5Z"/></svg></div>
+        <div class="hover-over">Play</div>
+      </div>
+      <div class="mcaption">Doing the best you do - Shining</div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center">
+      <div class="mcard" onclick="openVid('media/vid3.mp4','💙🤍')" data-type="vid">
+        <video src="media/vid3.mp4" muted preload="metadata" style="pointer-events:none"></video>
+        <div class="vid-badge"><svg viewBox="0 0 10 10"><path d="M2 1.5L8.5 5L2 8.5V1.5Z"/></svg></div>
+        <div class="hover-over">Play</div>
+      </div>
+      <div class="mcaption">Remember this? 😄</div>
+    </div>
+  </div>
+  <button class="nav" onclick="goTo(4)">Continue →</button>
+</div>
+
+<!-- S4: Her World -->
+<div class="sec" id="s4">
+  <div class="favs-intro">Things that make you</div>
+  <div class="favs-hint">tap each one to reveal</div>
+  <div class="fgrid" id="fgrid">
+    <div class="fcard" onclick="flipCard(this)">
+      <div class="ffront"><div class="ficon">✈️</div><div class="flbl">Traveling</div></div>
+      <div class="fback">You go somewhere new and somehow the place starts to feel like it was made for you!</div>
+    </div>
+    <div class="fcard" onclick="flipCard(this)">
+      <div class="ffront"><div class="ficon">🍰</div><div class="flbl">Tiramisu</div></div>
+      <div class="fback">Your favourite sweet. You once described it like it's a whole life. You're right!</div>
+    </div>
+    <div class="fcard" onclick="flipCard(this)">
+      <div class="ffront"><div class="ficon">🎤</div><div class="flbl">Singing</div></div>
+      <div class="fback">You sing like you forget someone is listening. That's when you sing with your heart!</div>
+    </div>
+    <div class="fcard" onclick="flipCard(this)">
+      <div class="ffront"><div class="ficon">🌙</div><div class="flbl">Sleeping</div></div>
+      <div class="fback">Your most favourite hobby. Deeply committed. Absolutely unapologetic!</div>
+    </div>
+    <div class="fcard" onclick="flipCard(this)">
+      <div class="ffront"><div class="ficon">📺</div><div class="flbl">Anais</div></div>
+      <div class="fback">Your favourite cartoon character — curious, chaotic and full of heart!</div>
+    </div>
+    <div class="fcard" onclick="flipCard(this)">
+      <div class="ffront"><div class="ficon">🎬</div><div class="flbl">Movies</div></div>
+      <div class="fback">You watch movies like you're looking for something. And you usually find it!</div>
+    </div>
+  </div>
+  <button class="nav" onclick="goTo(5)">Continue →</button>
+</div>
+
+<!-- S5: Chat -->
+<div class="sec" id="s5">
+  <div class="sec-label">Things we said</div>
+  <div class="chat-box" id="chatbox">
+    <div class="him-w">
+      <div class="bname">Ari</div>
+      <div class="bmsg">I love you 💙</div>
+  
+    </div>
+    <div class="her-w">
+      <div class="bname">Hafsita</div>
+      <div class="bmsg">Kbida</div>
+    </div>
+    <div class="him-w">
+      <div class="bmsg">Will you be my forever?</div>
+
+    </div>
+    <div class="her-w">
+      <div class="bmsg">I miss you so much 💙</div>
+    </div>
+    <div class="him-w">
+      <div class="bmsg">Puppy</div>
+
+    </div>
+    <div class="her-w">
+      <div class="bmsg">Honey</div>
+    </div>
+  </div>
+  <button class="nav" onclick="goTo(6)">Continue →</button>
+</div>
+
+<!-- S6: Strengths -->
+<div class="sec" id="s6">
+  <div class="sec-label">What I see in you</div>
+  <div class="str-list" id="strlist">
+    <div class="sitem"><div class="sdot"></div><div class="stxt">You are strong in ways most people never even notice — quietly, steadily, without needing anyone to see it.</div></div>
+    <div class="sitem"><div class="sdot"></div><div class="stxt">Your intelligence isn't loud. It lives in the questions you ask and the things you notice that everyone else walks right past.</div></div>
+    <div class="sitem"><div class="sdot"></div><div class="stxt">You feel deeply, and that is not a weakness. It means you are fully, completely alive — and that is so rare.</div></div>
+    <div class="sitem"><div class="sdot"></div><div class="stxt">You make people feel safe just by being yourself. That's not something you can learn. You just have it.</div></div>
+  </div>
+  <button class="nav" onclick="goTo(7)">Final chapter →</button>
+</div>
+
+<!-- S7: Birthday Final -->
+<div class="sec" id="s7">
+  <div class="final-wrap">
+    <div class="bday-title" id="bdayt">Happy Birthday</div>
+    <div class="bday-name" id="bdayn">Hafsita</div>
+    <div class="hburst" id="hburst">💙</div>
+    <div class="bnum" id="bnum">23</div>
+    <div class="bsub" id="bsub">years of being wonderfully you</div>
+    <div class="fmsg" id="fmsg">
+      Every conversation, every voice note,<br>
+      every random message — I kept all of it.<br><br>
+      Tübingen is lucky to have you.<br>
+      And so am I.<br><br>
+      Here's to 23 — may it be as bright<br>
+      and as beautiful as you are.
+    </div>
+    <div class="fsig" id="fsig">10.04.2026 · For Hafssa, always 💙</div>
+    <button class="nav" onclick="restartApp()" style="margin-top:2.5rem;border-color:rgba(255,255,255,0.15);font-size:10px;letter-spacing:3px">↺ Start over</button>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
